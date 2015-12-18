@@ -5,11 +5,11 @@ import java.util.Date;
 /**
  * Created by huawei on 12/18/15.
  */
-public class ServiceMapping {
+public class VenusServiceMapping {
 
     private Integer id;
-    private Server server;
-    private Service service;
+    private VenusServer server;
+    private VenusService service;
     private String version;
     private Integer active;
     private Date createTime;
@@ -23,19 +23,19 @@ public class ServiceMapping {
         this.id = id;
     }
 
-    public Server getServer() {
+    public VenusServer getServer() {
         return server;
     }
 
-    public void setServer(Server server) {
+    public void setServer(VenusServer server) {
         this.server = server;
     }
 
-    public Service getService() {
+    public VenusService getService() {
         return service;
     }
 
-    public void setService(Service service) {
+    public void setService(VenusService service) {
         this.service = service;
     }
 

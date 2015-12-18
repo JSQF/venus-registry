@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by huawei on 12/18/15.
  */
-public class Service {
+public class VenusService {
 
     private Integer id;
     private String name;

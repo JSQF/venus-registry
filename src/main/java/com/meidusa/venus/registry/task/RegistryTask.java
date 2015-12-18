@@ -1,7 +1,7 @@
 package com.meidusa.venus.registry.task;
 
-import com.meidusa.venus.registry.domain.Server;
-import com.meidusa.venus.registry.domain.ServiceMapping;
+import com.meidusa.venus.registry.domain.VenusServer;
+import com.meidusa.venus.registry.domain.VenusServiceMapping;
 import com.meidusa.venus.service.registry.ServiceDefinition;
 
 import java.util.List;
@@ -13,9 +13,9 @@ public class RegistryTask {
 
     public void registry(){
 
-        List<Server> servers = null;
+        List<VenusServer> servers = null;
 
-        for(Server server : servers) {
+        for(VenusServer server : servers) {
             List<ServiceDefinition> definitions = null;
             for(ServiceDefinition serviceDefinition : definitions) {
                 String serviceName = serviceDefinition.getName();
@@ -27,11 +27,11 @@ public class RegistryTask {
 
     public void clean() {
 
-        List<Server> servers = null;
+        List<VenusServer> servers = null;
 
-        List<ServiceMapping> mappings = null;
+        List<VenusServiceMapping> mappings = null;
 
-        for(Server server : servers) {
+        for(VenusServer server : servers) {
             List<ServiceDefinition> definitions = null;
 
 

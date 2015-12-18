@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by huawei on 12/18/15.
  */
-public class Server {
+public class VenusServer {
     private Integer id;
     private String host;
     private Integer port;
