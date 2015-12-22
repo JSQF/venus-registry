@@ -1,5 +1,7 @@
 package com.meidusa.venus.registry.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import java.util.Date;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Date;
  */
 public class VenusServer {
     private Integer id;
-    private String host;
+    private String hostname;
     private Integer port;
     private Date createTime;
     private Date updateTime;
@@ -20,12 +22,12 @@ public class VenusServer {
         this.id = id;
     }
 
-    public String getHost() {
-        return host;
+    public String getHostname() {
+        return hostname;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setHostname(String hostname) {
+        this.hostname = hostname;
     }
 
     public Integer getPort() {
@@ -50,5 +52,10 @@ public class VenusServer {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

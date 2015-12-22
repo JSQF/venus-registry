@@ -1,5 +1,7 @@
 package com.meidusa.venus.registry.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import java.util.Date;
 
 /**
@@ -11,7 +13,8 @@ public class VenusServiceMapping {
     private VenusServer server;
     private VenusService service;
     private String version;
-    private Integer active;
+    private boolean active;
+    private boolean sync;
     private Date createTime;
     private Date updateTime;
 
@@ -47,12 +50,20 @@ public class VenusServiceMapping {
         this.version = version;
     }
 
-    public Integer getActive() {
+    public boolean isActive() {
         return active;
     }
 
-    public void setActive(Integer active) {
+    public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public boolean isSync() {
+        return sync;
+    }
+
+    public void setSync(boolean sync) {
+        this.sync = sync;
     }
 
     public Date getCreateTime() {
@@ -69,5 +80,10 @@ public class VenusServiceMapping {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

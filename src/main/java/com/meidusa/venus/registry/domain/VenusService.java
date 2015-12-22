@@ -1,5 +1,7 @@
 package com.meidusa.venus.registry.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import java.util.Date;
 
 /**
@@ -51,5 +53,10 @@ public class VenusService {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<venus-server>
+    <services>
+        <service type="com.meidusa.venus.service.registry.ServiceRegistry">
+            <property name="instance">${DefaultRegistryService}</property>
+        </service>
+    </services>
+</venus-server>

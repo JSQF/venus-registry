@@ -5,13 +5,13 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 /**
  * Created by huawei on 12/20/15.
  */
-public class RemoteServiceDatatableRecord {
+public class RemoteServiceDataTableRecord {
 
     private String name;
     private String version;
     private String description;
     private boolean active;
-    private String status;
+    private Integer status;
 
     public String getName() {
         return name;
@@ -45,11 +45,11 @@ public class RemoteServiceDatatableRecord {
         this.active = active;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -2,7 +2,9 @@ package com.meidusa.venus.registry.domain.datatables;
 
 import com.meidusa.fastjson.JSON;
 import com.meidusa.venus.registry.domain.Jsonable;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ public class DataTableResult<T> implements Jsonable {
     private int draw;
     private int recordsTotal = 0;
     private int recordsFiltered = 0;
-    private List<T> data;
+    private List<T> data = new ArrayList<>();
     private String error;
 
     public int getDraw() {
@@ -57,7 +59,13 @@ public class DataTableResult<T> implements Jsonable {
     }
 
     @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
+
+    @Override
     public String toJson(){
+        System.out.println(this);
         return JSON.toJSONString(this);
     }
 }
