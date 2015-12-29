@@ -46,6 +46,7 @@
     </bean>
 
     <task:scheduled-tasks>
+        <task:scheduled ref="registryTask" method="registry" cron="*/30 * * * * *"/>
         <task:scheduled ref="registryTask" method="clean" cron="*/30 * * * * *"/>
     </task:scheduled-tasks>
 </beans>

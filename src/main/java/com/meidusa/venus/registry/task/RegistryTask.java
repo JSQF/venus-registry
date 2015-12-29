@@ -81,7 +81,7 @@ public class RegistryTask {
             Iterator<String> localMappingIterator = localMappingMap.keySet().iterator();
             while(localMappingIterator.hasNext()) {
                 String name = localMappingIterator.next();
-                System.out.println(Arrays.toString(remoteServiceNameList.toArray()) + ", " + name + ", " + remoteServiceNameList.contains(name));
+                //System.out.println(Arrays.toString(remoteServiceNameList.toArray()) + ", " + name + ", " + remoteServiceNameList.contains(name));
                 if (remoteServiceNameList.contains(name)) {
                     localMappingIterator.remove();
                 }

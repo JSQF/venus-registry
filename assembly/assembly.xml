@@ -1,0 +1,32 @@
+<assembly
+        xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>${timestamp}</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <format>war</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${basedir}/target/classes</directory>
+            <outputDirectory>WEB-INF/classes/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/WEB-INF/</directory>
+            <outputDirectory>WEB-INF/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/assets/</directory>
+            <outputDirectory>assets</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>WEB-INF/lib/</outputDirectory>
+            <excludes>
+                <exclude>${project.groupId}:${project.artifactId}:war:${project.version}</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

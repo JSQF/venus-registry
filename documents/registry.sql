@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS t_venus_service (
   description VARCHAR(256) NOT NULL COMMENT 'Venus服务描述',
   create_time DATETIME,
   update_time TIMESTAMP       DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) COMMENT 'Venus服务表';
+) COMMENT 'Venus服务表'  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 CREATE UNIQUE INDEX idx_name ON t_venus_service(name);
 
 DROP TABLE IF EXISTS t_venus_service_mapping;

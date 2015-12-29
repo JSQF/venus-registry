@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class ServiceUtils {
 
-    public static void registerService(VenusServer server, List<VenusServiceMapping> mappingList, VenusServiceService venusServiceService, VenusServiceMappingService venusServiceMappingService) throws VenusRegistryException {
+    public static void  registerService(VenusServer server, List<VenusServiceMapping> mappingList, VenusServiceService venusServiceService, VenusServiceMappingService venusServiceMappingService) throws VenusRegistryException {
         for(VenusServiceMapping mapping: mappingList) {
             VenusService venusService = venusServiceService.addService(mapping.getService().getName(), mapping.getService().getDescription());
 
