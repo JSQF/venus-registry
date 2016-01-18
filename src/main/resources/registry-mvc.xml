@@ -16,34 +16,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://10.32.173.99/registry"/>
-        <property name="username" value="registry"/>
-        <property name="password" value="registry"/>
-        <property name="testOnReturn" value="true"/>
-        <property name="testOnBorrow" value="true"/>
-        <property name="testWhileIdle" value="true"/>
-        <property name="validationQuery" value="select 1"/>
-        <property name="validationQueryTimeout" value="5"/>
-    </bean>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
 
-    <bean id="cmdbEnviroment" class="java.lang.String">
-        <constructor-arg index="0" value="sit"/>
-    </bean>
-
-    <bean id="cmdbClient" class="com.saike.framework.cmdb.CmdbClient">
-        <constructor-arg index="0" value="10.32.60.67"/>
-        <constructor-arg index="1" value="80"/>
-    </bean>
-
-    <bean id="registryTask" class="com.meidusa.venus.registry.task.RegistryTask">
-
-    </bean>
+    <bean id="registryTask" class="com.meidusa.venus.registry.task.RegistryTask" />
 
     <task:scheduled-tasks>
         <task:scheduled ref="registryTask" method="registry" cron="*/30 * * * * *"/>

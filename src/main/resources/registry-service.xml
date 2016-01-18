@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="cmdbEnviroment" class="java.lang.String">
+        <constructor-arg index="0" value="sit"/>
+    </bean>
+
+    <bean id="cmdbClient" class="com.saike.framework.cmdb.CmdbClient">
+        <constructor-arg index="0" value="10.32.60.67"/>
+        <constructor-arg index="1" value="80"/>
+    </bean>
+
+</beans>

@@ -1,9 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script>
-
     var serverManagerDataTable = null;
-
-    $("#document").ready(function () {
+    $(document).ready(function () {
         serverManagerDataTable = $("#manager_server").dataTable({
             "processing": false,
             "serverSide": true,
@@ -12,7 +10,7 @@
             "searching": true,
             "autoWidth": true,
             "ajax": {
-                url: "<%=request.getContextPath()%>/registry/list-venus-server.htm",
+                url: "<%=request.getContextPath()%>/registry/list-venus-server.json",
                 data: function (data) {
                     data.hostname = $("#searchManagerServerIp").val();
                     data.port = $("#searchManagerServerPort").val();
@@ -68,7 +66,7 @@
                     "searching": true,
                     "autoWidth": true,
                     "ajax": {
-                        url: "<%=request.getContextPath()%>/registry/list-venus-by-id.htm",
+                        url: "<%=request.getContextPath()%>/registry/list-venus-by-id.json",
                         data: function (data) {
                             data.serverId = serverId;
                         },
@@ -174,7 +172,7 @@
                     var mappingId = $(this).attr("sync_id");
                     if (mappingId != null && !isNaN(mappingId)) {
                         $.ajax({
-                            "url": "<%=request.getContextPath()%>/registry/sync-on.htm",
+                            "url": "<%=request.getContextPath()%>/registry/sync-on.json",
                             "type":"POST",
                             "dataType":"json",
                             "data": {
@@ -283,7 +281,7 @@
             }
         }
         $.ajax({
-            "url": "<%=request.getContextPath()%>/registry/update-mapping.htm",
+            "url": "<%=request.getContextPath()%>/registry/update-mapping.json",
             "type": "post",
             "dataType": "json",
             "data": {

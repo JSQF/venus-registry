@@ -10,7 +10,7 @@
             "paging": false,
             "searching": false,
             "ajax": {
-                url: "<%=request.getContextPath()%>/registry/findRemote.htm",
+                url: "<%=request.getContextPath()%>/registry/findRemote.json",
                 data: function (data) {
                     data.hostname = $("#hiddenServerIp").val();
                     data.port = $("#hiddenServerPort").val();
@@ -109,7 +109,7 @@
         var isConfirm = confirm("注册IP:" + serverIp + ", PORT:" + serverPort + " ?");
         if (isConfirm) {
             $.ajax({
-                "url": "<%=request.getContextPath()%>/registry/do-registry.htm",
+                "url": "<%=request.getContextPath()%>/registry/do-registry.json",
                 "type": "POST",
                 "dataType": "json",
                 "beforeSend": function () {

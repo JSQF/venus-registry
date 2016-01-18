@@ -2,6 +2,7 @@
 <script>
 
     var serviceManagerDataTable = null;
+    var serverTabTable = null;
 
     $(document).ready(function () {
         serviceManagerDataTable = $("#manager_service").dataTable({
@@ -12,7 +13,7 @@
             "searching": false,
             "autoWidth": true,
             "ajax": {
-                url: "<%=request.getContextPath()%>/registry/list-venus-service.htm",
+                url: "<%=request.getContextPath()%>/registry/list-venus-service.json",
                 data: function (d) {
                     d.serviceName = $("#searchManagerServiceName").val();
                 },
@@ -61,7 +62,7 @@
                 var serviceId = $(this).attr("data_id");
                 var table1 = $("#server_tab_table");
 
-                var serverTabTable = table1.dataTable({
+                serverTabTable = table1.dataTable({
                     "processing": false,
                     "serverSide": true,
                     "sort": false,
@@ -69,7 +70,7 @@
                     "searching": true,
                     "autoWidth": true,
                     "ajax": {
-                        url: "<%=request.getContextPath()%>/registry/list-venus-by-id.htm",
+                        url: "<%=request.getContextPath()%>/registry/list-venus-by-id.json",
                         data: function (data) {
                             data.serviceId = serviceId;
                         },
@@ -142,7 +143,7 @@
             }
 
             var nServiceEditing = null;
-            table1.on('draw.dt', function () {
+            $("#server_tab_table").on('draw.dt', function () {
                 nServiceEditing = null;
             });
 
@@ -176,7 +177,7 @@
                     var mappingId = $(this).attr("sync_id");
                     if (mappingId != null && !isNaN(mappingId)) {
                         $.ajax({
-                            "url": "<%=request.getContextPath()%>/registry/sync-on.htm",
+                            "url": "<%=request.getContextPath()%>/registry/sync-on.json",
                             "type":"POST",
                             "dataType":"json",
                             "data": {

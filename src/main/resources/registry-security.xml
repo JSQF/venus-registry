@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:security="http://www.springframework.org/schema/security"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+        default-lazy-init="false">
+
+    <context:component-scan base-package="com.meidusa.venus.registry"/>
+
+    <security:http auto-config="true">
+
+
+        <security:intercept-url pattern="/login/**" access="permitAll"/>
+        <security:intercept-url pattern="/logout.htm" access="permitAll"/>
+        <security:intercept-url pattern="/assets/**" access="permitAll"/>
+        <security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')"/>
+
+        <security:form-login login-page="/login/index.htm"
+                             login-processing-url="/login/do-login.htm"
+                             username-parameter="username"
+                             password-parameter="password"
+                             authentication-failure-url="/login/index.htm?error=true"/>
+        <security:logout logout-url="/logout.htm" logout-success-url="/login/index.htm?logout"/>
+        <security:csrf request-matcher-ref="ucmCsrfSecurityRequestMatcher"/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider ref="ucmAuthenticationProvider"/>
+    </security:authentication-manager>
+
+    <bean id="activeDirectoryLdapAuthenticationProvider"
+          class="org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider">
+        <constructor-arg index="0" value="chexiang.com"/>
+        <constructor-arg index="1" value="ldap://ldap01.dds.com:389"/>
+        <constructor-arg index="2" value="dc=dds,dc=com"/>
+        <property name="convertSubErrorCodesToExceptions" value="true"/>
+    </bean>
+
+    <bean id="ucmAuthenticationProvider" class="com.meidusa.venus.registry.security.UcmAuthenticationProvider">
+        <constructor-arg index="0" ref="activeDirectoryLdapAuthenticationProvider"/>
+    </bean>
+
+    <bean id="ucmCsrfSecurityRequestMatcher" class="com.meidusa.venus.registry.security.UcmCsrfSecurityRequestMatcher"/>
+    <bean id="ucmAccessDeniedHandler" class="com.meidusa.venus.registry.security.UcmAccessDeniedHandler"/>
+
+</beans>

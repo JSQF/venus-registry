@@ -19,7 +19,7 @@
             "searching": false,
             "deferLoading": 30,
             "ajax": {
-                url: "<%=request.getContextPath()%>/registry/list-bus.htm",
+                url: "<%=request.getContextPath()%>/registry/list-bus.json",
             },
             "aoColumns": [{
                 "mData": "ip",
